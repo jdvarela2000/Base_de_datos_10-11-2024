@@ -4,7 +4,6 @@ CREATE DATABASE IF NOT EXISTS grupo41;
 -- Seleccionar la base de datos
 USE grupo41;
 
--- Crear la tabla Participante
 CREATE TABLE IF NOT EXISTS Participante (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(50),
@@ -22,7 +21,6 @@ CREATE TABLE IF NOT EXISTS Participante (
     Email VARCHAR(100)
 );
 
--- Crear la tabla Hotel
 CREATE TABLE IF NOT EXISTS Hotel (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(100),
@@ -32,7 +30,6 @@ CREATE TABLE IF NOT EXISTS Hotel (
     PrecioTwinUSD DECIMAL(10, 2)
 );
 
--- Crear la tabla Reserva
 CREATE TABLE IF NOT EXISTS Reserva (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Participante INT,
@@ -45,7 +42,6 @@ CREATE TABLE IF NOT EXISTS Reserva (
     FOREIGN KEY (ID_Hotel) REFERENCES Hotel(ID) ON DELETE CASCADE
 );
 
--- Crear la tabla Pago
 CREATE TABLE IF NOT EXISTS Pago (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Reserva INT,
@@ -57,7 +53,6 @@ CREATE TABLE IF NOT EXISTS Pago (
     FOREIGN KEY (ID_Reserva) REFERENCES Reserva(ID) ON DELETE CASCADE
 );
 
--- Crear la tabla ContactoParaReservas
 CREATE TABLE IF NOT EXISTS ContactoParaReservas (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Hotel INT,
@@ -69,5 +64,3 @@ CREATE TABLE IF NOT EXISTS ContactoParaReservas (
     FOREIGN KEY (ID_Hotel) REFERENCES Hotel(ID) ON DELETE CASCADE
 );
 
--- Confirmación de finalización
-SELECT 'Script ejecutado exitosamente para MySQL Workbench 8.0 CE' AS Mensaje;
